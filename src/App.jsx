@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InputItem from "./components/InputItem";
 import TodoItem from "./components/TodoItem";
 import "./index.css";
 
 function App() {
-  const [task, setTask] = useState([]);
+  const [task, setTask] = useState(() => {
+    const savedTasks = localStorage.getItem("tasks");
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(task));
+  }, [task])
 
   function addTask(inputText) {
     setTask([
@@ -59,19 +66,6 @@ function App() {
       />
 
       <div className="main-task-container w-full max-w-2xl flex flex-col gap-3">
-        {/* {task.map((singleTask) => {
-          return (
-            <TodoItem
-              key={singleTask.id}
-              taskId={singleTask.id}
-              taskText={singleTask.taskText}
-              state={singleTask.state}
-              deleteTask={deleteTask}
-              toggleDone={toggleDone}
-              updateTask={updateTask}
-            />
-          );
-        })} */}
 
         {/* Pending tasks */}
         {pendingTasks.length > 0 && (
@@ -98,7 +92,7 @@ function App() {
 
         {/* Completed Tasks */}
         {completedTasks.length > 0 && (
-          <div className="flex flex-col gap-3 opacity-60">
+          <div className="flex flex-col gap-3 opacity-65">
             <h2 className="text-2xl font-semibold mb-2 px-5">Completed</h2>
             {task
               .filter((singleTask) => singleTask.state)
