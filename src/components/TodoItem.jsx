@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Button from "./Button";
-useState;
 import { CheckCheck, PenLine, Trash2 } from "lucide-react";
 
 export default function TodoItem({
@@ -17,9 +16,11 @@ export default function TodoItem({
   return (
     <div
       id={taskId}
-      className="task-container flex flex-row bg-slate-800 p-4 rounded-lg justify-between items-center mx-5 hover:scale-104 transition-transform duration-150"
+      className="task-container flex flex-row bg-slate-800 p-4 rounded-lg justify-between items-center mx-5 hover:scale-105 transition-transform duration-150"
     >
       <div>
+        {/* Task and edit input */}
+        
         <div
           className={`task-text flex text-xl transition-colors duration-200 line-through ${
             state
@@ -54,6 +55,7 @@ export default function TodoItem({
         </div>
       </div>
 
+      {/* Action btns */}
       <div className="action-btns flex gap-2 ml-10">
         <Button
           onClick={() => toggleDone(taskId)}
