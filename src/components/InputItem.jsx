@@ -34,7 +34,7 @@ export default function InputItem({
           if (e.key === "Enter") handleAddTask();
         }}
       />
-      <Button className={btnClassName} onClick={handleAddTask}>
+      <Button className={`${btnClassName} ${inputText.trim() === "" ? "opacity-50 cursor-not-allowed" : ""}`} onClick={handleAddTask}>
         {btnChildren}
       </Button>
     </div>

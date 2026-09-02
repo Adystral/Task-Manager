@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "./Button";
 import { CheckCheck, PenLine, Trash2 } from "lucide-react";
 
+
 export default function TodoItem({
   taskId,
   taskText,
@@ -20,7 +21,7 @@ export default function TodoItem({
     >
       <div>
         {/* Task and edit input */}
-        
+
         <div
           className={`task-text flex text-xl transition-colors duration-200 line-through ${
             state
@@ -32,6 +33,7 @@ export default function TodoItem({
             <div>
               <input
                 type="text"
+                autoFocus
                 value={editText}
                 onChange={(e) => setEditText(e.target.value)}
                 className="bg-[#1e293b]/50 border border-slate-700 text-slate-200 placeholder-slate-500 rounded px-3 py-1.5 mx-2 focus:outline-none focus:border-slate-400 font-mono text-base transition-colors duration-200"
