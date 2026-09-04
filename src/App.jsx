@@ -73,7 +73,7 @@ function App() {
       <div className="main-task-container w-full max-w-2xl flex flex-col gap-3">
         {/* EMPTY STATE */}
         {task.length === 0 && (
-          <div className="flex flex-col items-center justify-center py-16 px-4 text-slate-500 border-2 border-dashed border-slate-700 rounded-xl bg-slate-800/20 w-full mt-4">
+          <div className="flex flex-col items-center justify-center py-16 px-4 text-slate-500 border-2 border-dashed border-slate-700 rounded-xl bg-slate-800/20 w-full mt-4 ">
             <ClipboardList size={48} className="mb-4 opacity-50" />
             <h3 className="text-xl font-semibold text-slate-400 mb-2">
               No tasks yet
