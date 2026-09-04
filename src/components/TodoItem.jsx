@@ -2,7 +2,6 @@ import { useState } from "react";
 import Button from "./Button";
 import { CheckCheck, PenLine, Trash2 } from "lucide-react";
 
-
 export default function TodoItem({
   taskId,
   taskText,
@@ -17,9 +16,9 @@ export default function TodoItem({
   return (
     <div
       id={taskId}
-      className="task-container flex flex-row bg-slate-800 p-4 rounded-lg justify-between items-center mx-5 hover:scale-105 transition-transform duration-150"
+      className="task-container flex flex-col sm:flex-row bg-slate-800 p-4 rounded-lg justify-between sm:items-center gap-3 mx-5 hover:scale-105 transition-transform duration-150"
     >
-      <div>
+      <div className="min-w-0">
         {/* Task and edit input */}
 
         <div
@@ -52,33 +51,39 @@ export default function TodoItem({
           )}
         </div>
 
-        <div className="state flex text-slate-600">
+        <div className="state hidden sm:block text-slate-600">
           {state ? "Done" : "Pending"}
         </div>
       </div>
 
       {/* Action btns */}
-      <div className="action-btns flex gap-2 ml-10">
-        <Button
-          onClick={() => toggleDone(taskId)}
-          className="completed-btn px-3 py-3"
-        >
-          <CheckCheck size={20}/>
-        </Button>
+      <div className="flex items-center justify-between sm:contents">
+        <div className="state sm:hidden text-slate-600">
+          {state ? "Done" : "Pending"}
+        </div>
 
-        <Button
-          onClick={() => setIsEditing(true)}
-          className="edit-btn px-3 py-3"
-        >
-          <PenLine size={20}/>
-        </Button>
+        <div className="action-btns flex gap-2 justify-end sm:justify-start sm:ml-10">
+          <Button
+            onClick={() => toggleDone(taskId)}
+            className="completed-btn px-3 py-3"
+          >
+            <CheckCheck size={20} />
+          </Button>
 
-        <Button
-          onClick={() => deleteTask(taskId)}
-          className="delete-btn px-3 py-3"
-        >
-          <Trash2 size={20}/>
-        </Button>
+          <Button
+            onClick={() => setIsEditing(true)}
+            className="edit-btn px-3 py-3"
+          >
+            <PenLine size={20} />
+          </Button>
+
+          <Button
+            onClick={() => deleteTask(taskId)}
+            className="delete-btn px-3 py-3"
+          >
+            <Trash2 size={20} />
+          </Button>
+        </div>
       </div>
     </div>
   );

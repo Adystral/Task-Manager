@@ -62,12 +62,12 @@ function App() {
       </div>
 
       <InputItem
-        placeholder="Don't procrastinate, just do it :>"
+        placeholder="Don't procrastinate, just do it!"
         btnChildren="Add Task"
         addTask={addTask}
         updateTask={updateTask}
         btnClassName="px-3 py-1.5"
-        inputClassName="w-96"
+        inputClassName="w-full max-w-xs sm:w-96"
       />
 
       <div className="main-task-container w-full max-w-2xl flex flex-col gap-3">

@@ -22,7 +22,7 @@ export default function InputItem({
   }
 
   return (
-    <div className="my-5 flex justify-center items-center">
+    <div className="flex flex-wrap justify-center items-center gap-2 px-4 mb-4">
       <label>Your Task : </label>
       <input
         type={type}
