@@ -2,13 +2,12 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const taskSchema = new Schema({
-  task: {
+  todo: {
     type: String,
     required: true,
   },
   isCompleted: {
     type: Boolean,
-    required: true,
     default: false
   },
   owner: {
